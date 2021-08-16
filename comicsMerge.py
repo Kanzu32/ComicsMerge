@@ -7,7 +7,7 @@ sys.path.append(os.path.join(root, "modules", "colorama"))
 os.environ["PATH"] = os.path.join(root, "modules", "winrar")
 import rarfile
 from colorama import init, Fore, Style
-from termcolor import colored, cprint
+from termcolor import colored
 from progress.bar import Bar
 
 init(convert=True)
