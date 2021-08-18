@@ -76,6 +76,7 @@ if (endTypeMode == "zip"):
 
     for part in bookPartsList:
         partPath = os.path.join(bookPath, part)
+
         if os.path.isdir(partPath):
             filesList = os.listdir(partPath)
             for i in range(len(filesList)):
@@ -116,6 +117,7 @@ if (endTypeMode == "zip"):
 
 elif (endTypeMode == "rar"):
     endFile = os.path.join(root, "output", endName + endType)
+
     for part in bookPartsList:
         partPath = os.path.join(bookPath, part)
         if os.path.isdir(partPath):
@@ -169,8 +171,10 @@ elif (endTypeMode == "rar"):
     os.system("@echo off & rar m -ep {0} {1}>Nul".format(arhivePath, filePath)) #-ep1
 
 progressBar.finish()
+
 if (errorsCount > 0):
     print(colored("Unsupported files: {0}".format(errorsCount), "yellow"))
     print(colored("\n".join(errors), "yellow"))
+
 print(colored("Done", "green"))
 time.sleep(3)
