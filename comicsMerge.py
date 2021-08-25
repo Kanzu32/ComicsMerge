@@ -196,7 +196,7 @@ elif (endTypeMode == "rar"):
     if overwrite:
         os.system("@echo off & rar d {0}>Nul".format(arhivePath))
     
-    os.system("@echo off & rar m -ep {0} {1}>Nul".format(arhivePath, filePath))
+    os.system("@echo off & rar m -ep \"{0}\" {1}>Nul".format(arhivePath, filePath))
 
 progressBar.finish()
 
