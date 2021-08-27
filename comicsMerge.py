@@ -8,6 +8,7 @@ import rarfile
 from colorama import init, Fore, Style
 from termcolor import colored
 from progress.bar import Bar
+from datetime import datetime
 
 init(convert=True)
 
@@ -200,8 +201,16 @@ elif (endTypeMode == "rar"):
 progressBar.finish()
 
 if (errorsCount > 0):
+    if "errorLogs" not in os.listdir():
+        os.mkdir("errorLogs")
+    date = datetime.now()
+    logDate = date.strftime("%y-%m-%d-%H.%M.%S")
+
+    errorFile = open(os.path.join("errorLogs", "log{0}.txt".format(logDate)), "w")
+    errorFile.write("\n".join(errors))
+    errorFile.close()
     print(colored("Unsupported files: {0}".format(errorsCount), "yellow"))
-    print(colored("\n".join(errors), "yellow"))
+    print(colored("Go to errorLogs folder for list of the error files.", "yellow"))
 
 print(colored("Done", "green"))
 input()
