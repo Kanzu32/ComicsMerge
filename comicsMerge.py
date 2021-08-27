@@ -1,6 +1,5 @@
 import zipfile
 import os, sys
-import time
 root = os.getcwd()
 sys.path.append(os.path.join(root, "modules"))
 sys.path.append(os.path.join(root, "modules", "colorama"))
@@ -205,4 +204,4 @@ if (errorsCount > 0):
     print(colored("\n".join(errors), "yellow"))
 
 print(colored("Done", "green"))
-time.sleep(3)
+input()
